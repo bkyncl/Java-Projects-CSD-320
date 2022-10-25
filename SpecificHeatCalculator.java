@@ -9,9 +9,9 @@
 
 import java.util.Scanner; // import scanner class
 
-public class SpecificHeatCalculator2 {
+public class SpecificHeatCalculator {
   
-    public static void main(String[] args) {
+    public static void main(String[] args) { // main method
 
         Scanner input = new Scanner(System.in); // create scanner object
         String runAgain;
@@ -19,17 +19,17 @@ public class SpecificHeatCalculator2 {
         // program re-run loop
         do {
 
-        // display program function
-        System.out.println("\nThis specific heat calculator program calculates the energy\n"
-                            + "needed to heat an amount of water from\n"
-                            + "an initial temperatureto a final temperature."); 
+            // display program function
+            System.out.println("\nThis specific heat calculator program calculates the energy\n"
+                                + "needed to heat an amount of water from\n"
+                                + "an initial temperatureto a final temperature."); 
 
-        // offer conversion from fahrenheit to celsius                   
-        System.out.print("\nThis calculator takes in tepmeratures in degrees Celcius." +
-                        "\nDo you need to convert your initial and final temperature from" +
-                        "\nFahernehit to Celcius? Enter (y/n): ");
-        // store user answer to convert degree option
-        String convertDegree = input.next();
+            // offer conversion from fahrenheit to celsius                   
+            System.out.print("\nThis calculator takes in tepmeratures in degrees Celcius." +
+                            "\nDo you need to convert your initial and final temperature from" +
+                            "\nFahernehit to Celcius? Enter (y/n): ");
+            // store user answer to convert degree option
+            String convertDegree = input.next();
 
 
             // run conversion bases on y choice
@@ -92,7 +92,7 @@ public class SpecificHeatCalculator2 {
             
         } while(runAgain.equalsIgnoreCase("y")); // re-run loop
     
-    input.close(); // close scanner
+        input.close(); // close scanner
 
     }
     
