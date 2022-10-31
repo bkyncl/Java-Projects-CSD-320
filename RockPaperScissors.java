@@ -21,13 +21,12 @@ public class RockPaperScissors {
         int playerChoice; // player choice
         int playAgain;
 
-        
-            // program message
-            System.out.println("\nWelcome to Rock, Paper, and Scissors game!!!");
-            System.out.print("Please enter player name: "); // get user's name
-            player = input.nextLine();
+        // program message
+        System.out.println("\nWelcome to Rock, Paper, and Scissors game!!!");
+        System.out.print("Please enter player name: "); // get user's name
+        player = input.nextLine();
 
-            do {
+        do {
 
             // player options prompt
             System.out.println("\nWelcome " + player + "!" + "\nPlease choose your weapon..."
@@ -38,10 +37,10 @@ public class RockPaperScissors {
 
                 computerChoice = (int)(Math.random() * 3 + 1); // randomly generate computer choice 1-3
 
-            
                 System.out.print("\nEnter choice: "); // user choice prompt
-                playerChoice = input.nextInt();
 
+                playerChoice = input.nextInt();
+                
                 if(playerChoice == computerChoice) { // check for tie
                     System.out.println("\nYou Tied. Try again!");// let user try again
                 }
@@ -83,7 +82,8 @@ public class RockPaperScissors {
 
         } while(playAgain == 1);
 
-    
+        System.out.println("Goodbye...");
+
         input.close();
         
     }
