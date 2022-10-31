@@ -29,7 +29,7 @@ public class RockPaperScissors {
             player = input.nextLine();
 
             do {
-                
+
             // player options prompt
             System.out.println("\nWelcome " + player + "!" + "\nPlease choose your weapon..."
                             + "\n1 - ROCK \n2 - PAPER \n3 - SCISSORS");
@@ -39,25 +39,21 @@ public class RockPaperScissors {
 
                 computerChoice = (int)(Math.random() * 3 + 1); // randomly generate computer choice 1-3
 
-                try {
-                    System.out.print("\nEnter choice: "); // user choice prompt
-                    playerChoice = input.nextInt();
-                    if(playerChoice == computerChoice) { // check for tie
-                        System.out.println("\nYou Tied. Try again!");// let user try again
-                    }
-                    else if (playerChoice >= 0 && playerChoice <= 3) {
-                        break; // verify choice ic valid
-                    }
-                    // else if (InputMismatchException)
-                    else {
-                        System.out.println("Please enter a number between 1-3."); // error message
-                    }
-                }
-                catch (InputMismatchException e) {
-                    System.out.println("You must enter and ~integer~ between 1-3.");
-                    
-                }
+            
+                System.out.print("\nEnter choice: "); // user choice prompt
+                playerChoice = input.nextInt();
                 
+                if(playerChoice == computerChoice) { // check for tie
+                    System.out.println("\nYou Tied. Try again!");// let user try again
+                }
+                else if (playerChoice >= 0 && playerChoice <= 3) {
+                    break; // verify choice ic valid
+                }
+                // else if (InputMismatchException)
+                else {
+                    System.out.println("Please enter a number between 1-3."); // error message
+                }
+            
             }
 
             // switching player choice 1-3 to cooresponding weapon options for print statement
