@@ -96,5 +96,6 @@ public class RockPaperScissors {
         System.out.println("Goodbye...");
 
         input.close();
+    }
         
 }
