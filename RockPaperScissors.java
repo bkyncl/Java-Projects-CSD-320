@@ -39,23 +39,23 @@ public class RockPaperScissors {
                 computerChoice = (int)(Math.random() * 3 + 1); // randomly generate computer choice 1-3
 
                 System.out.print("\nEnter choice: "); // user choice prompt
-            try {   
-                playerChoice = input.nextInt();
+                try {   
+                    playerChoice = input.nextInt();
 
-                if(playerChoice == computerChoice) { // check for tie
-                    System.out.println("\nYou Tied. Try again!");// let user try again
+                    if(playerChoice == computerChoice) { // check for tie
+                        System.out.println("\nYou Tied. Try again!");// let user try again
+                    }
+                    else if (playerChoice >= 0 && playerChoice <= 3) {
+                        break; // verify choice ic valid
+                    }
+                    else { // chech valid number range
+                        System.out.println("Enter only integers between 1-3."); // error message
+                    }
                 }
-                else if (playerChoice >= 0 && playerChoice <= 3) {
-                    break; // verify choice ic valid
+                catch (InputMismatchException e) {
+                    input.nextLine();
+                    System.out.println("Invalid Input. Enter only integers 1-3.");
                 }
-                else { // chech valid number range
-                    System.out.println("Enter only integers between 1-3."); // error message
-                }
-            }
-            catch (InputMismatchException e) {
-                input.nextLine();
-                System.out.println("Invalid Input. Enter only integers 1-3.");
-            }
             }
 
             String playerWeapon = Integer.toString(playerChoice);
