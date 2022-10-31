@@ -9,7 +9,6 @@
  * 3 = Scissors
  * */
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class RockPaperScissors {
@@ -42,15 +41,14 @@ public class RockPaperScissors {
             
                 System.out.print("\nEnter choice: "); // user choice prompt
                 playerChoice = input.nextInt();
-                
+
                 if(playerChoice == computerChoice) { // check for tie
                     System.out.println("\nYou Tied. Try again!");// let user try again
                 }
                 else if (playerChoice >= 0 && playerChoice <= 3) {
                     break; // verify choice ic valid
                 }
-                // else if (InputMismatchException)
-                else {
+                else { // chech valid number range
                     System.out.println("Please enter a number between 1-3."); // error message
                 }
             
