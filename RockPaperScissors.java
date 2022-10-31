@@ -9,7 +9,6 @@
  * 3 = Scissors
  * */
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class RockPaperScissors {
