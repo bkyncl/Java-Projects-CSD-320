@@ -36,11 +36,8 @@ public class Pyramid {
             }
             for (int j = i; j <= row; j++) { // upwards decreasing triangle 
                 System.out.print("   "); // 3 whtite spaces each
-                if (j == row) { // if column limit reached
-                    System.out.print("@"); // print @
-                }
             }
-
+            System.out.print("@"); // print @
             System.out.println(); // print each row on new line
             
         }
