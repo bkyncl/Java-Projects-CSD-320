@@ -1,7 +1,7 @@
 /* WhileOperations.java
  * Module 5 Assignment 
  * Name: Brittany Kyncl
- * Date: 11.7.22
+ * Date: 11.8.22
  * Course: CSD320
  * While loop to display the following math operations smaller to larger order and then larger to smaller order:
  * Denominator: 3 - 99
