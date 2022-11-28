@@ -11,7 +11,7 @@ import java.util.InputMismatchException;
 
 public class Method_Overload{
 
-	// set final service charge value
+	// set final service charge values
 	public static final double serviceCharges = 120;
 	public static final double oilChangePrice = 65;
 	public static final double tireRotation = 45;
@@ -19,14 +19,16 @@ public class Method_Overload{
 	public static void main(String[] args) {
 
 		Scanner input = new Scanner(System.in); //to take user input
-		int serviceSelection; 
-		int coupon = 10;
+		int serviceSelection; // input selction var
+		int coupon = 10; // coupon var
 
+		// initial test of methods
 		System.out.println(Method_Overload.yearlyService());
 		System.out.println(Method_Overload.yearlyService(oilChangePrice));
 		System.out.println(Method_Overload.yearlyService(oilChangePrice,tireRotation));
 		System.out.println(Method_Overload.yearlyService(oilChangePrice,tireRotation,coupon));
-
+		
+		// service input menu
 		System.out.println("\nThe standard yearly service charge is $150" +
 						"\nPlease select additonal services from the below menu.." +
 						"\n1. Oil Change: $65" +
@@ -35,34 +37,33 @@ public class Method_Overload{
 						"\n4. Oil Change + Tire Rotation - $10 coupon" +
 						"\n5. No Additonal Services");
 		
-		while(true){
+		while(true){ // loop for re-entry on invalid input
 
 			System.out.print("Enter 1/2/3/4/5: ");
 			try{
 				serviceSelection = input.nextInt();
-				if(serviceSelection > 5 || serviceSelection < 1){
-					continue;
+				if(serviceSelection > 5 || serviceSelection < 1){ // exception on int out of rang
 				}
-				else if(serviceSelection == 1){
+				else if(serviceSelection == 1){ // oil change
 					System.out.println("Your total will be: " + Method_Overload.yearlyService(oilChangePrice));
 					break;
-				}else if(serviceSelection == 2){
+				}else if(serviceSelection == 2){ // tire rotation
 					System.out.println("Your total will be: " + Method_Overload.yearlyService(tireRotation));
 					break;
-				}else if(serviceSelection == 3){
+				}else if(serviceSelection == 3){ // oil change and tire rotation
 					System.out.println("Your total will be: " + Method_Overload.yearlyService(oilChangePrice,tireRotation));
 					break;
-				}else if (serviceSelection == 4){
+				}else if (serviceSelection == 4){ // all services - $10 coupon
 					System.out.println("Your total will be: " + Method_Overload.yearlyService(oilChangePrice,tireRotation,coupon));
 					break;
-				}else{
+				}else{ // standard service fee
 					System.out.println("Your total will be: " + Method_Overload.yearlyService());
 					break;
 				}
 			}
-			catch (InputMismatchException e) {
+			catch (InputMismatchException e) { // exception on string input
 				input.nextLine();
-				System.out.println("Invalid Input. Enter only integers 1-4.");
+				System.out.println("Invalid Input. Enter only integers 1-5.");
 			}
 		}
 		input.close();
