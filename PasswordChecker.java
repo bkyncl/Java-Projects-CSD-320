@@ -43,7 +43,8 @@ public class PasswordChecker {
                 }
             }while(noPass); //while password is invalid
 
-            System.out.print("New Password? (y/n): ");
+            System.out.print("\nTo try a different password enter 'y'." +
+                            "\nTo exit press 'enter': ");
             String entry = input.nextLine();
             if(entry.equalsIgnoreCase("y")) {
                 again = true;
@@ -67,33 +68,25 @@ public class PasswordChecker {
         boolean isNums = false; //check for digit flag
         boolean isUpper = false; //check for upper flag
         boolean isLower = false; //check for lowercase flag
-        boolean digitCount = false; // check for mutliple digit flag
-        int digit = 0; // to store number of digits
         char ch;
 
         for(int i = 0; i < password.length(); i++) { // traverse each character in password
             ch = password.charAt(i);
             if(Character.isDigit(ch)) { // if character is digit
                 isNums = true; // digit flag true
-                digit++; // increment digit counter
             }else if(Character.isUpperCase(ch)) { // if character is upper
                 isUpper = true; // upperflag true
             }else if(Character.isLowerCase(ch)) { // if character is lower
                 isLower = true; // lowerflag true
             }
-            if(digit >= 2) { // if digit count 2 or above
-                digitCount = true; // digit flag true
-            }
-            if(isUpper && isLower && isNums && digitCount) { // if all condition flags true
+            if(isUpper && isLower && isNums) { // if all condition flags true
                 return true; // return true for passed conditions 2-3
             }
         }
         if(!isNums){ // if contains no digits
-            System.out.println("The password must contain both letters and digits."); //print error type
-        }else if(!digitCount) { // if contains less than 2 digits
-            System.out.println("The password must contain at least two digits."); //print error type
+            System.out.println("Password must contain both letters and digits."); //print error type
         }else if(!isUpper || !isLower){ // if no upper AND lowercase
-            System.out.println("The password must contain at least one uppercase AND lowercase letter."); //print error type
+            System.out.println("Password must contain at least one uppercase AND lowercase letter."); //print error type
         }
         return false; // return false for failed conditions 2-3
 
