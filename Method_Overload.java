@@ -11,7 +11,7 @@ import java.util.*;
 public class Method_Overload{
 
 	// set final service charge values
-	public static final double serviceCharges = 150;
+	public static final double serviceCharges = 120;
 	public static final double oilChangePrice = 65;
 	public static final double tireRotation = 45;
 	public static int coupon = 10; // coupon var
@@ -28,7 +28,7 @@ public class Method_Overload{
 		System.out.printf("%nSerivce charge + oilchange + tirerotation - coupon: %n" + Method_Overload.yearlyService(oilChangePrice,tireRotation,coupon));
 		
 		// service input menu
-		System.out.println("\n\nThe standard yearly service charge is $150" +
+		System.out.println("\n\nThe standard yearly service charge is $120" +
 						"\nPlease select additonal services from the below menu.." +
 						"\n1. Oil Change: $65" +
 						"\n2. Tire Rotation: $45" +

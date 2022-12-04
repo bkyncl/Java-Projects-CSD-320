@@ -1,5 +1,3 @@
-
-
 /* Array_Overload.java
  * Module 10 Assignment 
  * Name: Brittany Kyncl
@@ -67,8 +65,8 @@ class Methods { // methods class
     public static double getAverage(short[] array){
         // finding the sum of all values inside array
         double sum = 0;
-        for(int i = 0; i < array.length; i++){
-            sum += array[i];
+        for(short i: array){
+            sum += i;
         }
         return sum / array.length; // return average
     }
@@ -76,8 +74,8 @@ class Methods { // methods class
     public static double getAverage(int[] array){
         // finding the sum of all values inside array
         double sum = 0;
-        for(int i = 0; i < array.length; i++){
-            sum += array[i];
+        for(int i: array){
+            sum += i;
         }
         return sum / array.length; // return average
     }
@@ -85,8 +83,8 @@ class Methods { // methods class
     public static double getAverage(long[] array){
         // finding the sum of all values inside array
         double sum = 0;
-        for(int i = 0; i < array.length; i++){
-            sum += array[i];
+        for(long i: array){
+            sum += i;
         }
         return sum / array.length; // return average
     }
@@ -94,8 +92,8 @@ class Methods { // methods class
     public static double getAverage(double[] array){
         // finding the sum of all values inside array
         double sum = 0;
-        for(int i = 0; i < array.length; i++){
-            sum += array[i];
+        for(double i: array){
+            sum += i;
         }
         return sum / array.length; // return average
     }
