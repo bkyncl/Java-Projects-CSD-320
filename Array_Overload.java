@@ -18,29 +18,56 @@ public class Array_Overload {
 
         // output test
         Test.outputTest();
-
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter desired length of each array data type"); 
+        int rng;
+        int lng[] = new int[4]; // array to hold array data type variable based on user input
+        int a,b,c,d; // variables to hold each data type for arrays
 
-        // get each array type length
-        System.out.println("Length of short array? ");
-        int shrtL = input.nextInt(); // store short array length
-        System.out.println("Length of int array? ");
-        int intL = input.nextInt(); // store int array length
-        System.out.println("Length of long array? ");
-        int lngL = input.nextInt(); // store long array length
-        System.out.println("Length of double array? ");
-        int dblL = input.nextInt(); // store double array length
-
-        // get array range for random generation
-        System.out.print("Now enter desired range of array number generation. From 0 - ");
-        int rng = input.nextInt(); // store array range 
-
-        // calling methods to generate random arrays
-        short[] shortArray = Methods.randomShrtArray(shrtL, rng);
-        int[] intArray = Methods.randomIntArray(intL, rng);
-        long[] longArray = Methods.randomLongArray(lngL, rng);
-        double[] doubleArray = Methods.randomDoubleArray(dblL, rng);
+            // get desired length of arrays for each array data type
+            System.out.println("Enter desired length of each array data type..."
+                            + "\n1. Short"
+                            + "\n2. Integer"
+                            + "\n3. Long"
+                            + "\n4. Double\n"); 
+            for(int i = 0; i< lng.length; i ++){ // loop to take in user input for data type holder array
+                System.out.print(i + 1 +": ");
+                try{
+                    lng[i]= input.nextInt();
+                    if(lng[i] < 1){ // if less than 1 reset counter
+                        i -= 1;
+                    }
+                }
+                catch (InputMismatchException e) { // exception on input
+                    input.nextLine();
+                    i -= 1; // reset counter
+                }
+            }
+            a=lng[0]; // assign value at index of data type array to cooresponding variable
+            b=lng[1]; // assign value at index of data type array to cooresponding variable
+            c=lng[2]; // assign value at index of data type array to cooresponding variable
+            d=lng[3]; // assign value at index of data type array to cooresponding variable
+            System.out.println(a + b + c + d);
+                    
+            // get array range for random generation
+            while(true){
+                System.out.print("Now enter desired range of array number generation. From 0 - ");
+                try{
+                    rng = input.nextInt(); // store array range 
+                    if(rng < 0){
+                        continue;
+                    }
+                    break;
+                }
+                catch (InputMismatchException e) { // exception on input
+                    input.nextLine();
+                }
+            }
+ 
+        // calling methods to generate random arrays parsing cooresponding array size and number gen. range
+        short[] shortArray = Methods.randomShrtArray(a, rng);
+        int[] intArray = Methods.randomIntArray(b, rng);
+        long[] longArray = Methods.randomLongArray(c, rng);
+        double[] doubleArray = Methods.randomDoubleArray(d, rng);
 
         Printing.printArray(shortArray); // printing short array
         // calling getaverage method and printing
