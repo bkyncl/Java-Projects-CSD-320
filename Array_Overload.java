@@ -20,7 +20,7 @@ public class Array_Overload {
         Test.outputTest();
         Scanner input = new Scanner(System.in);
         int rng;
-        int lng[] = new int[4]; // array to hold array data type variable based on user input
+        int placeHolder[] = new int[4]; // array to hold array data type variable based on user input
         int a,b,c,d; // variables to hold each data type for arrays
 
         // get desired length of arrays for each array data type
@@ -29,11 +29,11 @@ public class Array_Overload {
                         + "\n2. Integer"
                         + "\n3. Long"
                         + "\n4. Double\n"); 
-        for(int i = 0; i< lng.length; i ++){ // loop to take in user input for data type holder array
+        for(int i = 0; i< placeHolder.length; i ++){ // loop to take in user input for data type holder array
             System.out.print(i + 1 +": ");
             try{
-                lng[i]= input.nextInt();
-                if(lng[i] < 1){ // if less than 1 reset counter
+                placeHolder[i]= input.nextInt();
+                if(placeHolder[i] < 1){ // if less than 1 reset counter
                     i -= 1;
                 }
             }
@@ -42,10 +42,10 @@ public class Array_Overload {
                 i -= 1; // reset counter
             }
         }
-        a=lng[0]; // assign value at index of data type array to cooresponding variable
-        b=lng[1]; // assign value at index of data type array to cooresponding variable
-        c=lng[2]; // assign value at index of data type array to cooresponding variable
-        d=lng[3]; // assign value at index of data type array to cooresponding variable
+        a=placeHolder[0]; // assign value at index of data type array to cooresponding variable
+        b=placeHolder[1]; // assign value at index of data type array to cooresponding variable
+        c=placeHolder[2]; // assign value at index of data type array to cooresponding variable
+        d=placeHolder[3]; // assign value at index of data type array to cooresponding variable
 
         // get array range for random generation
         while(true){
