@@ -8,6 +8,8 @@
  */
 import java.util.*;
 
+import javax.lang.model.util.ElementScanner14;
+
 public class Two_Dim_Array {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -15,52 +17,71 @@ public class Two_Dim_Array {
         // function message
         System.out.println("\nDisplaying two dimensional arrays and the indices of the min/max element locations..\n");
 
-        int numberOfRows, numberOfColumns; // vars to hold user inputs
-        // promting user for 2d array num of rows and columns
-        System.out.print("Enter desired number of rows in 2D array: ");
-        numberOfRows = input.nextInt();
-        System.out.print("Enter desired number of columns in 2D array: ");
-        numberOfColumns = input.nextInt();
+        //re-run loop
+        while(true){
+            int numberOfRows, numberOfColumns; // vars to hold user inputs
+            // promting user for 2d array num of rows and columns
+            System.out.print("\nEnter desired number of rows in 2D array: ");
+            try{
+                numberOfRows = input.nextInt();
+            }
+            catch(InputMismatchException e){
+                input.nextLine();
+                continue;
+            }
+            System.out.print("\nEnter desired number of columns in 2D array: ");
+            try{
+                numberOfColumns = input.nextInt();
+            }
+            catch(InputMismatchException e){
+                input.nextLine();
+                continue;
+            }
 
-        // declaring int type 2d array filled with random numbers retunred from array generation method
-        int [][] intArray = intArray(numberOfRows, numberOfColumns); // parsing user input
-        // declaring double type 2d array filled with random numbers retunred from array generation method
-        double [][] doubleArray = doubleArray(numberOfRows, numberOfColumns); //parsing user input
+            // declaring int type 2d array filled with random numbers retunred from array generation method
+            int [][] intArray = intArray(numberOfRows, numberOfColumns); // parsing user input
+            // declaring double type 2d array filled with random numbers retunred from array generation method
+            double [][] doubleArray = doubleArray(numberOfRows, numberOfColumns); //parsing user input
 
-        // declaring array to hold indices of largest element location returned from method
-        int[] max = locateLargest(intArray); 
-        // declaring array to hold indices of smallest element location returned from method
-        int[] min = locateSmallest(intArray);
+            // declaring array to hold indices of largest element location returned from method
+            int[] max = locateLargest(intArray); 
+            // declaring array to hold indices of smallest element location returned from method
+            int[] min = locateSmallest(intArray);
 
-        // declaring array to hold indices of largest element location returned from method
-        int[] max2 = locateLargest(doubleArray);
-        // declaring array to hold indices of smallest element location returned from method
-        int[] min2 = locateSmallest(doubleArray);
-
-
-        // Displaying and finding min max on int type 2d array
-        System.out.println();
-        printIndArray(intArray); // calling print method for display
-        System.out.println();
-
-        // displaying results for int type 2d array
-        System.out.println("The max element is located at row index, column index: " + Arrays.toString(max));
-        System.out.println("Max Element value: " +intArray[max[0]][max[1]]); // displaying value held at max location
-        System.out.println("The min element is located at row index, column index: " + Arrays.toString(min));
-        System.out.println("Min Element value: " +intArray[min[0]][min[1]]); // displaying value held at min location
-        System.out.println();
-
-        // Displaying and finding min max on doubly type 2d array
-        printIndArray(doubleArray); // calling print method for display
-        System.out.println();
+            // declaring array to hold indices of largest element location returned from method
+            int[] max2 = locateLargest(doubleArray);
+            // declaring array to hold indices of smallest element location returned from method
+            int[] min2 = locateSmallest(doubleArray);
         
-        // displaying results for double type 2d array
-        System.out.println("The max element is located at row index, column index: " + Arrays.toString(max2));
-        System.out.println("Max Element value: " + doubleArray[max2[0]][max2[1]]); // displaying value held at max location
-        System.out.println("The min elementis located at row index, column index: " + Arrays.toString(min2));
-        System.out.println("Min Element value: " + doubleArray[min2[0]][min2[1]]); // displaying value held at min location
-        System.out.println();
+            // Displaying and finding min max on int type 2d array
+            System.out.println();
+            printArray(intArray); // calling print method for display
+            System.out.println();
 
+            // displaying results for int type 2d array
+            System.out.println("The max element is located at row index, column index: " + Arrays.toString(max));
+            System.out.println("Max Element value: " +intArray[max[0]][max[1]]); // displaying value held at max location
+            System.out.println("The min element is located at row index, column index: " + Arrays.toString(min));
+            System.out.println("Min Element value: " +intArray[min[0]][min[1]]); // displaying value held at min location
+            System.out.println();
+
+            // Displaying and finding min max on doubly type 2d array
+            printArray(doubleArray); // calling print method for display
+            System.out.println();
+            
+            // displaying results for double type 2d array
+            System.out.println("The max element is located at row index, column index: " + Arrays.toString(max2));
+            System.out.println("Max Element value: " + doubleArray[max2[0]][max2[1]]); // displaying value held at max location
+            System.out.println("The min elementis located at row index, column index: " + Arrays.toString(min2));
+            System.out.println("Min Element value: " + doubleArray[min2[0]][min2[1]]); // displaying value held at min location
+            System.out.println();
+
+            System.out.print("To exit press enter, or type something to continue: ");
+            input.nextLine();
+            String in = input.nextLine();
+            if(in.equals(""))
+                break;
+        }
         input.close();
         
     } 
