@@ -14,49 +14,58 @@ public class Three_Dim_Array {
         // function message
         System.out.println("\nDisplaying three dimensional arrays and the indices of the min/max element locations..\n");
      
-        int numberOfSides, numberOfRows, numberOfColumns; // vars to hold user inputs
-        // promting user for 3d array num of sides,rows, and columns
-        System.out.print("Enter number of sides: ");
-        numberOfSides = input.nextInt();
-        System.out.print("Enter number of rows: ");
-        numberOfRows = input.nextInt();
-        System.out.print("Enter number of columns: ");
-        numberOfColumns = input.nextInt();
+        while(true){
+            int numberOfSides, numberOfRows, numberOfColumns; // vars to hold user inputs
+            // promting user for 3d array num of sides,rows, and columns
+            System.out.print("Enter number of sides: ");
+            numberOfSides = input.nextInt();
+            System.out.print("Enter number of rows: ");
+            numberOfRows = input.nextInt();
+            System.out.print("Enter number of columns: ");
+            numberOfColumns = input.nextInt();
 
-        //declaring and filling int and double type 3d arrays parsing user input to fill methods
-        int[][][] intArray = intArray(numberOfSides,numberOfRows,numberOfColumns);
-        double[][][] doubleArray = doubleArray(numberOfSides,numberOfRows,numberOfColumns);
+            //declaring and filling int and double type 3d arrays parsing user input to fill methods
+            int[][][] intArray = intArray(numberOfSides,numberOfRows,numberOfColumns);
+            double[][][] doubleArray = doubleArray(numberOfSides,numberOfRows,numberOfColumns);
 
-        // declaring arrays to hold indices of largest element location returned from method
-        int[] max = locateLargest(intArray); 
-        // declaring array to hold indices of smallest element location returned from method
-        int[] min = locateSmallest(intArray);
+            // declaring arrays to hold indices of largest element location returned from method
+            int[] max = locateLargest(intArray); 
+            // declaring array to hold indices of smallest element location returned from method
+            int[] min = locateSmallest(intArray);
 
-        // declaring arrays to hold indices of largest element location returned from method
-        int[] max1 = locateLargest(doubleArray); 
-        // declaring array to hold indices of smallest element location returned from method
-        int[] min1 = locateSmallest(doubleArray);
+            // declaring arrays to hold indices of largest element location returned from method
+            int[] max1 = locateLargest(doubleArray); 
+            // declaring array to hold indices of smallest element location returned from method
+            int[] min1 = locateSmallest(doubleArray);
 
-        System.out.println("\nInt 3D Array");
-        printArray(intArray); // printing contents
+            System.out.println("\nInt 3D Array");
+            printArray(intArray); // printing contents
 
-        // displaying int 3d array results
-        System.out.println("The max element is located on side index, at row index, column index: " + Arrays.toString(max));
-        System.out.println("Max Element value: " + intArray[max[0]][max[1]][max[2]]); // displaying value held at max location
-        System.out.println("The min element is located on side index, at row index, column index: " + Arrays.toString(min));
-        System.out.println("Min Element value: " + intArray[min[0]][min[1]][min[2]]); // displaying value held at min location
-        System.out.println();
+            // displaying int 3d array results
+            System.out.println("The max element is located on side index, at row index, column index: " + Arrays.toString(max));
+            System.out.println("Max Element value: " + intArray[max[0]][max[1]][max[2]]); // displaying value held at max location
+            System.out.println("The min element is located on side index, at row index, column index: " + Arrays.toString(min));
+            System.out.println("Min Element value: " + intArray[min[0]][min[1]][min[2]]); // displaying value held at min location
+            System.out.println();
 
-        
-        System.out.println("\nDouble 3D Array");
-        printArray(doubleArray); // printing contents
+            
+            System.out.println("\nDouble 3D Array");
+            printArray(doubleArray); // printing contents
 
-        // displaying int 3d array results
-        System.out.println("The max element is located on side index, at row index, column index: " + Arrays.toString(max1));
-        System.out.println("Max Element value: " + doubleArray[max1[0]][max1[1]][max1[2]]); // displaying value held at max location
-        System.out.println("The min element is located on side index, at row index, column index: " + Arrays.toString(min1));
-        System.out.println("Min Element value: " + doubleArray[min1[0]][min1[1]][min1[2]]); // displaying value held at min location
-        System.out.println();
+            // displaying int 3d array results
+            System.out.println("The max element is located on side index, at row index, column index: " + Arrays.toString(max1));
+            System.out.println("Max Element value: " + doubleArray[max1[0]][max1[1]][max1[2]]); // displaying value held at max location
+            System.out.println("The min element is located on side index, at row index, column index: " + Arrays.toString(min1));
+            System.out.println("Min Element value: " + doubleArray[min1[0]][min1[1]][min1[2]]); // displaying value held at min location
+            System.out.println();
+
+            System.out.print("To exit press enter, or type something to continue: ");
+            input.nextLine();
+            String in = input.nextLine();
+            if(in.equals(""))
+                break;
+        }
+
 
         input.close();
     }
