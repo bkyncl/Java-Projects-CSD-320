@@ -86,27 +86,27 @@ public class Array_Overload {
 }
 class Methods { // methods class
     // get average of array
-    public static double getAverage(short[] array){
+    public static short getAverage(short[] array){
         // finding the sum of all values inside array
-        double sum = 0;
+        short sum = 0;
         for(short i: array){
             sum += i;
         }
-        return sum / array.length; // return average
+        return (short) (sum / array.length); // return average
     }
     // get average of array
-    public static double getAverage(int[] array){
+    public static int getAverage(int[] array){
         // finding the sum of all values inside array
-        double sum = 0;
+        int sum = 0;
         for(int i: array){
             sum += i;
         }
         return sum / array.length; // return average
     }
     // get average of array
-    public static double getAverage(long[] array){
+    public static long getAverage(long[] array){
         // finding the sum of all values inside array
-        double sum = 0;
+        long sum = 0;
         for(long i: array){
             sum += i;
         }
@@ -121,18 +121,12 @@ class Methods { // methods class
         }
         return sum / array.length; // return average
     }
-    // method to generate random number using nextDouble() method of Random class
-    public static double randomRange(int rng){
-        return (
-            new Random().nextDouble(rng + 1)
-        );
-    }
     // method to generate random number array
     public static short[] randomShrtArray(int lng, int rng){
         // short type array
         short[] shortArray = new short[lng]; // intializing array variable
         for(int i =0; i < shortArray.length; i++){ 
-            shortArray[i] = (short) randomRange(rng);
+            shortArray[i] = (short) (Math.random() * rng);
         }
         return shortArray;
     }
@@ -141,7 +135,7 @@ class Methods { // methods class
         // int type array
         int[] intArray = new int [lng]; // intializing array variable
         for(int i =0; i < intArray.length; i++){ 
-            intArray[i] = (int) randomRange(rng);
+            intArray[i] = (int) (Math.random() * rng);
         }
         return intArray;
     }
@@ -150,7 +144,7 @@ class Methods { // methods class
         // int type array
         long[] longArray = new long [lng]; // intializing array variable
         for(int i =0; i < longArray.length; i++){ 
-            longArray[i] = (long) randomRange(rng);
+            longArray[i] = (long) (Math.random() * rng);
         }
         return longArray;
     }
@@ -159,7 +153,7 @@ class Methods { // methods class
         // int type array
         double[] doubleArray = new double [lng]; // intializing array variable
         for(int i =0; i < doubleArray.length; i++){ 
-            doubleArray[i] = randomRange(rng);
+            doubleArray[i] = (double) (Math.random() * rng);
         }
         return doubleArray;
     }
