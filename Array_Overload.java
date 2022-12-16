@@ -20,36 +20,10 @@ public class Array_Overload {
         Test.outputTest();
         Scanner input = new Scanner(System.in);
         int rng;
-        int placeHolder[] = new int[4]; // array to hold array data type variable based on user input
-        int a,b,c,d; // variables to hold each data type for arrays
-
-        // get desired length of arrays for each array data type
-        System.out.println("Enter desired length of each array data type..."
-                        + "\n1. Short"
-                        + "\n2. Integer"
-                        + "\n3. Long"
-                        + "\n4. Double\n"); 
-        for(int i = 0; i< placeHolder.length; i ++){ // loop to take in user input for data type holder array
-            System.out.print(i + 1 +": ");
-            try{
-                placeHolder[i]= input.nextInt();
-                if(placeHolder[i] < 1){ // if less than 1 reset counter
-                    i -= 1;
-                }
-            }
-            catch (InputMismatchException e) { // exception on input
-                input.nextLine();
-                i -= 1; // reset counter
-            }
-        }
-        a=placeHolder[0]; // assign value at index of data type array to cooresponding variable
-        b=placeHolder[1]; // assign value at index of data type array to cooresponding variable
-        c=placeHolder[2]; // assign value at index of data type array to cooresponding variable
-        d=placeHolder[3]; // assign value at index of data type array to cooresponding variable
 
         // get array range for random generation
         while(true){
-            System.out.print("Now enter desired range of array number generation. From 0 - ");
+            System.out.print("Enter desired range of array number generation. From 0 - ");
             try{
                 rng = input.nextInt(); // store array range 
                 if(rng < 0){
@@ -61,23 +35,31 @@ public class Array_Overload {
                 input.nextLine();
             }
         }
-        // calling methods to generate random arrays parsing cooresponding array size and number gen. range
-        short[] shortArray = Methods.randomShrtArray(a, rng);
-        int[] intArray = Methods.randomIntArray(b, rng);
-        long[] longArray = Methods.randomLongArray(c, rng);
-        double[] doubleArray = Methods.randomDoubleArray(d, rng);
+        // declaring short, int, long, and double type arrays of various size
+        short[] shortArray = new short[(short) (Math.random() * 15 + 2)];
+        Methods.fillArray(shortArray, rng); //initializing array with random numbers
+        int[] intArray = new int[(int) (Math.random() * 15 + 2)];
+        Methods.fillArray(intArray, rng); //initializing array with random numbers
+        long[] longArray = new long[(int) (Math.random() * 15 + 2)];
+        Methods.fillArray(longArray, rng); //initializing array with random numbers
+        double[] doubleArray = new double[(int) (Math.random() * 15 + 2)];
+        Methods.fillArray(doubleArray, rng); //initializing array with random numbers
 
-        Printing.printArray(shortArray); // printing short array
-        // calling getaverage method and printing
+        //printing and displayilng average returned from getAverage method for shortArray
+        System.out.println();
+        System.out.println("Short Array: \n" + Arrays.toString(shortArray));
         System.out.println("Short array AVG: " + Methods.getAverage(shortArray));
-        Printing.printArray(intArray); // printing int array
-        // calling getaverage method and printing
+        System.out.println();
+        //printing and displayilng average returned from getAverage method for intArray
+        System.out.println("Int Array: \n" + Arrays.toString(intArray));
         System.out.println("Int array AVG: " + Methods.getAverage(intArray));
-        Printing.printArray(longArray); // printing long array
-        // calling getaverage method and printing
+        System.out.println();
+        //printing and displayilng average returned from getAverage method for longArray
+        System.out.println("Long Array: \n" + Arrays.toString(longArray));
         System.out.println("Long array AVG: " + Methods.getAverage(longArray));
-        Printing.printArray(doubleArray); // printing double array
-        // calling getaverage method and printing
+        System.out.println();
+        //printing and displayilng average returned from getAverage method for doubleArray
+        System.out.println("Double Array: \n" + Arrays.toString(doubleArray));
         System.out.println("Double array AVG: " + Methods.getAverage(doubleArray));
         System.out.println();
 
@@ -121,71 +103,33 @@ class Methods { // methods class
         }
         return sum / array.length; // return average
     }
-    // method to generate random number array
-    public static short[] randomShrtArray(int lng, int rng){
-        // short type array
-        short[] shortArray = new short[lng]; // intializing array variable
+    // method to fill array
+    public static void fillArray(short[] shortArray, int rng){
+        // fill short type array
         for(int i =0; i < shortArray.length; i++){ 
             shortArray[i] = (short) (Math.random() * rng);
         }
-        return shortArray;
     }
-    // method to generate random number array
-    public static int[] randomIntArray(int lng, int rng){
-        // int type array
-        int[] intArray = new int [lng]; // intializing array variable
+    // method to fill array
+    public static void fillArray(int[] intArray, int rng){
+        // fill int type array
         for(int i =0; i < intArray.length; i++){ 
             intArray[i] = (int) (Math.random() * rng);
         }
-        return intArray;
     }
-    // method to generate random number array
-    public static long[] randomLongArray(int lng, int rng){
-        // int type array
-        long[] longArray = new long [lng]; // intializing array variable
+    // method to fill array
+    public static void fillArray(long[] longArray, int rng){
+        // fill long type array
         for(int i =0; i < longArray.length; i++){ 
             longArray[i] = (long) (Math.random() * rng);
         }
-        return longArray;
     }
-    // method to generate random number array
-    public static double[] randomDoubleArray(int lng, int rng){
-        // int type array
-        double[] doubleArray = new double [lng]; // intializing array variable
+    // method to fill array
+    public static void fillArray(double[] doubleArray, int rng){
+        // fill double type array
         for(int i =0; i < doubleArray.length; i++){ 
             doubleArray[i] = (double) (Math.random() * rng);
         }
-        return doubleArray;
-    }
-}
-class Printing { // printing format class
-    public static void printArray(short[] array){
-        // method to print array contents
-        System.out.println("\nShort Array contents...");
-        for(short e: array) // foreach loop
-            System.out.print(e + " ");
-        System.out.println();
-    }
-    public static void printArray(int[] array){
-        // method to print array contents
-        System.out.println("\nInt Array contents...");
-        for(int e: array) // foreach loop
-            System.out.print(e + " ");
-        System.out.println();
-    }    
-    public static void printArray(long[] array){
-        // method to print array contents
-        System.out.println("\nLong Array contents...");
-        for(long e: array) // foreach loop
-            System.out.print(e + " ");
-        System.out.println();
-    }
-    public static void printArray(double[] array){
-        // method to print array contents
-        System.out.println("\nDouble Array contents...");
-        for(double e: array) // foreach loop
-            System.out.print(e + " ");
-        System.out.println();
     }
 }
 class Test { // output test class
