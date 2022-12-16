@@ -19,6 +19,7 @@ public class Array_Overload {
         // output test
         Test.outputTest();
         Scanner input = new Scanner(System.in);
+        Random rn = new Random();
         int rng;
 
         // get array range for random generation
@@ -36,13 +37,13 @@ public class Array_Overload {
             }
         }
         // declaring short, int, long, and double type arrays of various size
-        short[] shortArray = new short[(short) (Math.random() * 15 + 2)];
+        short[] shortArray = new short[rn.nextInt(15-3)+3];
         Methods.fillArray(shortArray, rng); //initializing array with random numbers
-        int[] intArray = new int[(int) (Math.random() * 15 + 2)];
+        int[] intArray = new int[rn.nextInt(15-3)+3];
         Methods.fillArray(intArray, rng); //initializing array with random numbers
-        long[] longArray = new long[(int) (Math.random() * 15 + 2)];
+        long[] longArray = new long[rn.nextInt(15-3)+3];
         Methods.fillArray(longArray, rng); //initializing array with random numbers
-        double[] doubleArray = new double[(int) (Math.random() * 15 + 2)];
+        double[] doubleArray = new double[rn.nextInt(15-3)+3];
         Methods.fillArray(doubleArray, rng); //initializing array with random numbers
 
         //printing and displayilng average returned from getAverage method for shortArray
